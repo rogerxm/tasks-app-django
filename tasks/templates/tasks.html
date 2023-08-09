@@ -6,7 +6,9 @@
       <h1 class="text-center display-1">Pending Tasks! 📄</h1>
 
       <ul class="list-group mt-3">
-        {% for task in tasks %}
+        {% for task in tasks %} {% if not tasks %}
+        <h2>No pending tasks</h2>
+        {%endif %}
         <a
           href="{% url 'task_details' task.id %}"
           class="text-decoration-none text-black"
