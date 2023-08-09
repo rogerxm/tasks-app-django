@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {%block content%}
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center display-1 pt-5">Completed Tasks! ✅</h1>
+      <section>
+        <ul class="list-group mt-3">
+          {% for task in tasks %}
+          <li class="list-group-item">
+            <a
+              href="{% url 'task_details' task.id %}"
+              class="text-decoration-none text-black"
+            >
+              <h2 class="mt-2">{{task.title}}</h2>
+            </a>
+            <p>{{task.description}}</p>
+
+            <p>
+              <strong>📅 Completed on: </strong>
+              {{task.datecompleted|date:'M j Y'}}
+            </p>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+{% endblock%}
